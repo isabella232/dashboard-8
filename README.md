@@ -1,7 +1,8 @@
 ## Introduction
 
-dashboard是提供给用户，以图表的方式查看push上来的数据
+This fork repo is just translating Chinese to English.
 
+dashboard is used for users to view the data in charts
 
 ## Clone
 
