@@ -40,7 +40,7 @@ function fn_list_counters(){
         hosts.push(name);
     });
     if (hosts.length === 0){
-        alert("先选定一些endpoints");
+        alert("choose some endpoints first");
         return false;
     }
 
@@ -61,9 +61,9 @@ function fn_list_counters(){
 
                 for (var i in items) {
                     var c = items[i];
-                    var display_counter_type = "计数器";
+                    var display_counter_type = "counter";
                     if(c[1] == "GAUGE") {
-                        display_counter_type = "原始值";
+                        display_counter_type = "gauge";
                     }
                     var line_html = '<tr>'
                     + '<td><input type="checkbox" class="input shiftCheckbox" data-fullkey="'+c[0]+'"></input></td>'
@@ -75,7 +75,7 @@ function fn_list_counters(){
                     tbody_items.find('.shiftCheckbox').shiftcheckbox();
                 }
             }else{
-                alert("搜索失败：" + ret.msg);
+                alert("search failed: " + ret.msg);
                 return false;
             }
         }
@@ -164,11 +164,11 @@ function fn_show_chart(counter)
             if (ret.ok) {
                 setTimeout(function(){w.location='/chart/big?id='+ret.id;}, 0);
             } else {
-                alert("请求出错了");
+                alert("request error");
             }
         },
         error: function(){
-            alert("请求出错了");
+            alert("request error");
         }
     });
     return false;
@@ -184,7 +184,7 @@ function fn_show_all(graph_type)
         }
     });
     if(checked_hosts.length === 0){
-        alert("先选endpoint：）");
+        alert("choose endpoint first :)");
         return false;
     }
 
@@ -196,7 +196,7 @@ function fn_show_all(graph_type)
         }
     });
     if (checked_items.length === 0){
-        alert("请选择counter");
+        alert("please choose counter");
         return false;
     }
 
@@ -210,11 +210,11 @@ function fn_show_all(graph_type)
             if (ret.ok) {
                 setTimeout(function(){w.location="/charts?id="+ret.id+"&graph_type="+graph_type;}, 0);
             }else {
-                alert("请求出错了");
+                alert("request error");
             }
         },
         error: function(){
-            alert("请求出错了");
+            alert("request error");
         }
     });
     return false;
