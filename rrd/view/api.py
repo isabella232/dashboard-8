@@ -24,7 +24,7 @@ def api_endpoints():
     if not q and not tags:
         ret["msg"] = "no query params given"
         return json.dumps(ret)
-    
+
     endpoints = []
 
     if tags and q:
@@ -33,6 +33,8 @@ def api_endpoints():
     elif tags:
         endpoint_ids = TagEndpoint.get_endpoint_ids(tags, limit=limit) or []
         endpoints = Endpoint.gets(endpoint_ids)
+    elif q == 'all':
+        endpoints = Endpoint.search([], limit=limit)
     else:
         endpoints = Endpoint.search(q.split(), limit=limit)
 
@@ -75,7 +77,7 @@ def api_get_counters():
     if not ecs:
         ret["msg"] = "no counters in graph"
         return json.dumps(ret)
-    
+
     counters_map = {}
     for x in ecs:
         counters_map[x.counter] = [x.counter, x.type_, x.step]

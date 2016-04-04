@@ -9,7 +9,7 @@ function fn_toogle_legend_flot(a, i) {
     } else {
         $l.hide();
     }
-    $(a).text('切换legend');
+    $(a).text('change legend');
     return false;
 }
 
@@ -23,7 +23,7 @@ function fn_toogle_sum_flot(a, i) {
     } else {
         s = 'on';
     }
-    $(a).text('切换求和');
+    $(a).text('change sum');
     u = u.set('sum', s);
     var dataU = url.split('?')[0] + u.toString();
     $container.data('u', dataU);
@@ -63,28 +63,28 @@ $(function(){
                                         </a>
                                         <ul class="dropdown-menu">
                                             <li>
-                                                <a href="javascript:void(0);" class="btn btn-link btn-xs" onclick="return fn_toogle_legend_flot(this, '{{i}}');">切换legend</a>
+                                                <a href="javascript:void(0);" class="btn btn-link btn-xs" onclick="return fn_toogle_legend_flot(this, '{{i}}');">change legend</a>
                                             </li>
                                             <li>
-                                                <a href="javascript:void(0);" class="btn btn-link btn-xs" onclick="return fn_toogle_sum_flot(this, '{{i}}');">切换求和</a>
+                                                <a href="javascript:void(0);" class="btn btn-link btn-xs" onclick="return fn_toogle_sum_flot(this, '{{i}}');">change sum</a>
                                             </li>
 
                                             <li>
                                             {%set big_graph = graph.src.replace("graph_type=h", "").replace("graph_type=k", "").replace("graph_type=a", "")%}
                                             {%if graph.src.find("/chart/h") >=0 %}
                                                 {%set big_graph = graph.src.replace("/chart/h", "/chart/big")%}
-                                                <a href="{{big_graph|safe}}&start=-86400&graph_type=h" target="__blank" class="btn btn-link btn-xs">查看大图</a>
+                                                <a href="{{big_graph|safe}}&start=-86400&graph_type=h" target="__blank" class="btn btn-link btn-xs">view big chart</a>
                                             {%elif graph.src.find("/chart/k") >=0%}
                                                 {%set big_graph = graph.src.replace("/chart/k", "/chart/big")%}
-                                                <a href="{{big_graph|safe}}&start=-86400&graph_type=k" target="__blank" class="btn btn-link btn-xs">查看大图</a>
+                                                <a href="{{big_graph|safe}}&start=-86400&graph_type=k" target="__blank" class="btn btn-link btn-xs">view big chart</a>
                                             {%else%}
                                                 {%set big_graph = graph.src.replace("/chart/a", "/chart/big")%}
-                                                <a href="{{big_graph|safe}}&start=-86400&graph_type=a" target="__blank" class="btn btn-link btn-xs">查看大图</a>
+                                                <a href="{{big_graph|safe}}&start=-86400&graph_type=a" target="__blank" class="btn btn-link btn-xs">view big chart</a>
                                             {%endif%}
                                             </li>
 
                                             <li>
-                                                <a href="/graph/{{graph.id}}/edit" target="__blank" class="btn btn-link btn-xs">编辑</a>
+                                                <a href="/graph/{{graph.id}}/edit" target="__blank" class="btn btn-link btn-xs">edit</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -116,16 +116,16 @@ $(function(){
         {%if current_top_screen%}
             {{current_top_screen.name}}
         {%else%}
-            screen首页
+            screen homepage
         {%endif%}
         <span class="caret"></span>
       </button>
 
       <ul class="dropdown-menu" role="menu">
-        <li><a href="/screen/add"> <small>+ 导航</small></a></li>
+        <li><a href="/screen/add"> <small>+ Navigation</small></a></li>
         <li>
             <div class="form-group search-area">
-                <input class="form-control" id="searchinput" type="search" placeholder="搜索..">
+                <input class="form-control" id="searchinput" type="search" placeholder="Searching..">
             </div>
         </li>
         {%for c in top_screens%}
@@ -144,7 +144,7 @@ $(function(){
         {%if current_sub_screen %}
             {{current_sub_screen.name}}
         {%else%}
-            选择
+            Choose
         {%endif%}
         <span class="caret"></span>
       </button>
