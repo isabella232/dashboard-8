@@ -22,6 +22,11 @@
                     <li><a href="#" onclick="fn_query({legend: 'on'})"><i class="icon-plus"></i>show legend</a></li>
                     {%endif%}
 
+                    {% if g.auto_refresh =="on" %}
+                        <li><input id="refresh-checkoutbox" type="checkbox" checked="true" onChange="fn_query({auto_refresh:'off'})">refresh</li>
+                    {% else %}
+                        <li><input id="refresh-checkoutbox" type="checkbox" onChange="fn_query({auto_refresh:'on'})">refresh</li>
+                    {% endif %}
                     <li>
                         <div class="btn-group">
                             <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">

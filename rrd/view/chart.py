@@ -49,6 +49,7 @@ def chart_before():
             g.cols = 6
 
         g.legend = request.args.get("legend") or "off"
+        g.auto_refresh = request.args.get("auto_refresh") or "off"
         g.graph_type = request.args.get("graph_type") or GRAPH_TYPE_HOST
         g.sum = request.args.get("sum") or "off" #是否求和
         g.sumonly = request.args.get("sumonly") or "off" #是否只显示求和
