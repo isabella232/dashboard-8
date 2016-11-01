@@ -9,6 +9,6 @@ app.config.from_object("rrd.config")
 @app.errorhandler(Exception)
 def all_exception_handler(error):
     print "exception: %s" %error
-    return u'dashboard 暂时无法访问，请联系管理员', 500
+    return u'dashboard is down, contact administrator', 500
 
 from view import api, chart, screen, index
